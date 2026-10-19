@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ConferenceAttendees.Api.Controllers
 {
@@ -12,7 +11,7 @@ namespace ConferenceAttendees.Api.Controllers
         [HttpGet]
         public async Task<string> Get()
         {
-            return _configuration["EnvironmentValue"];
+            return _configuration["EnvironmentValue"] ?? "Environment value not found";
         }
     }
 }

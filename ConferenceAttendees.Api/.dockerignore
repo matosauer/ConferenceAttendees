@@ -1,0 +1,34 @@
+# Build output
+bin/
+obj/
+
+# IDE and editor files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Git files
+.git/
+.gitignore
+
+# Docker files and local tooling
+docker-compose*.yml
+Dockerfile*
+.dockerignore
+
+# Logs and local data
+logs/
+*.log
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
