@@ -1,4 +1,5 @@
 using ConferenceAttendee.YMVC.Services.Base;
+using Serilog;
 
 namespace ConferenceAttendee.YMVC
 {
@@ -10,7 +11,6 @@ namespace ConferenceAttendee.YMVC
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
 
             //1
             builder.Services.AddHttpClient();
@@ -27,6 +27,10 @@ namespace ConferenceAttendee.YMVC
 
                 return new Client(baseUrl, httpClient);
             });
+
+            builder.Host.UseSerilog((context, configuration) =>
+                configuration.ReadFrom.Configuration(context.Configuration)
+            );
 
             var app = builder.Build();
 

@@ -12,8 +12,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 builder.Host.UseSerilog((context, configuration) =>
-configuration.ReadFrom.Configuration(context.Configuration)
-    );
+    configuration.ReadFrom.Configuration(context.Configuration)
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
