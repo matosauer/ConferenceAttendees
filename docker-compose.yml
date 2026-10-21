@@ -1,0 +1,15 @@
+services:
+  conferenceattendees.api:
+    image: ${DOCKER_REGISTRY-}conferenceattendees.api
+    build:
+      context: .
+      dockerfile: ConferenceAttendees.Api/Dockerfile
+    ports:
+      - "5000:5178"
+  conferenceattendees.ymvc:
+    image: ${DOCKER_REGISTRY-}conferenceattendees.ymvc
+    build:
+      context: .
+      dockerfile: ConferenceAttendees.YMVC/Dockerfile
+    ports:
+      - "8088:8080"

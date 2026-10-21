@@ -5,7 +5,7 @@
       "commandVersion": "1.0",
       "serviceActions": {
         "conferenceattendees.api": "StartDebugging",
-        "conferenceattendees.mvc": "StartDebugging"
+        "conferenceattendees.ymvc": "StartDebugging"
       }
     }
   }
