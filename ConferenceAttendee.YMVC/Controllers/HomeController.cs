@@ -1,5 +1,4 @@
 using ConferenceAttendee.YMVC.Models;
-using ConferenceAttendee.YMVC.Services.Base;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,12 +7,9 @@ namespace ConferenceAttendee.YMVC.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IClient _client;
-
-        public HomeController(IClient client, ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _client = client;
         }
 
         public async Task<IActionResult> Index()
