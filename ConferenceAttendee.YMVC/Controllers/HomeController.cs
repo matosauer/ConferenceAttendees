@@ -1,8 +1,8 @@
-using ConferenceAttendee.YMVC.Models;
+using ConferenceAttendees.YMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace ConferenceAttendee.YMVC.Controllers
+namespace ConferenceAttendees.YMVC.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,4 +1,4 @@
-﻿//namespace ConferenceAttendee.YMVC.Services.Base;
+﻿//namespace ConferenceAttendees.YMVC.Services.Base;
 
 //public partial class Client : IClient
 //{

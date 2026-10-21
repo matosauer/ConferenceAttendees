@@ -7,6 +7,7 @@
     <UserSecretsId>2fc13213-fbcb-4bab-b1e6-197652686dcf</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <ContainerRepository>conferenceattendees.ymvc.dotnetpublish</ContainerRepository>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
 
   <ItemGroup>

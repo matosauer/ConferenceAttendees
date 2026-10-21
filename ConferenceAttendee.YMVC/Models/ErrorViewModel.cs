@@ -1,4 +1,4 @@
-namespace ConferenceAttendee.YMVC.Models
+namespace ConferenceAttendees.YMVC.Models
 {
     public class ErrorViewModel
     {

@@ -1,7 +1,7 @@
-﻿using ConferenceAttendee.YMVC.Services.Base;
+﻿using ConferenceAttendees.YMVC.Services.Base;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ConferenceAttendee.YMVC.Controllers
+namespace ConferenceAttendees.YMVC.Controllers
 {
     public class AttendeeController(IClient client, ILogger<HomeController> logger) : Controller
     {

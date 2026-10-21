@@ -1,7 +1,7 @@
-using ConferenceAttendee.YMVC.Services.Base;
+using ConferenceAttendees.YMVC.Services.Base;
 using Serilog;
 
-namespace ConferenceAttendee.YMVC
+namespace ConferenceAttendees.YMVC
 {
     public class Program
     {
