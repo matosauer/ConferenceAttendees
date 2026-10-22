@@ -1,4 +1,5 @@
 using ConferenceAttendees.YMVC.Services.Base;
+using Microsoft.AspNetCore.HttpOverrides;
 using Serilog;
 
 namespace ConferenceAttendees.YMVC
@@ -43,6 +44,12 @@ namespace ConferenceAttendees.YMVC
             }
 
             app.UseHttpsRedirection();
+
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
+            {
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+            });
+
             app.UseStaticFiles();
 
             app.UseRouting();

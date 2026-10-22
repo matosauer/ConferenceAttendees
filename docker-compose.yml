@@ -7,7 +7,9 @@ services:
     ports:
       - "5000:5178"
     depends_on:
-      [seq_logs]
+      [sql_server,seq_logs]
+    networks:
+      - app-network
 
   conferenceattendees.ymvc:
     image: ${DOCKER_REGISTRY-}conferenceattendees.ymvc
@@ -18,6 +20,8 @@ services:
       - "8088:8080"
     depends_on:
       [conferenceattendees.api]
+    networks:
+      - app-network
 
   seq_logs:
     image: datalust/seq:latest
@@ -29,6 +33,8 @@ services:
       SEQ_PASSWORD: ${SEQ_PASSWORD:?Set SEQ_PASSWORD in .env}
     volumes:
       - seq_data:/data
+    networks:
+      - app-network
   
   sql_server:
     image: mcr.microsoft.com/mssql/server:2022-latest
@@ -40,6 +46,24 @@ services:
       MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     volumes:
       - sql_data:/var/opt/mssql 
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: . 
+      dockerfile: nginx/Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - conferenceattendees.ymvc
+    networks:
+      - app-network        
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   seq_data:

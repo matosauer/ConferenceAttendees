@@ -24,6 +24,12 @@ SEQ_PASSWORD=YourSeqPassword
 MSSQL_SA_PASSWORD=YourSQLPassword
 ```
 
+Modify host file to add the following line:
+```
+127.0.0.1       conferenceattendees.com
+127.0.0.1       api.conferenceattendees.com
+```
+
 Build and Run with Docker Compose
 
 ```bash
@@ -36,6 +42,7 @@ The database will be automatically created and seeded with initial data when the
 
 ## Tools
 - NSwaggers is used for API documentation and testing. You can access the Swagger UI at `http://localhost:5000/swagger` after running the application.
-- NSwagStudio is used for generating client code and documentation based on the API specifications.
+- NSwagStudio is used for generating client code and documentation based on the API specifications. https://github.com/RicoSuter/NSwag
 - Serilog is used for logging within the application, providing structured logging capabilities.
 - Seq is used for centralized logging and monitoring of the application. You can access the Seq dashboard at `http://localhost:5341` after running the application.
+- Postman is used for testing API endpoints and verifying the functionality of the application.
