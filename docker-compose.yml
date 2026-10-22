@@ -6,6 +6,9 @@ services:
       dockerfile: ConferenceAttendees.Api/Dockerfile
     ports:
       - "5000:5178"
+    depends_on:
+      [seq_logs]
+
   conferenceattendees.ymvc:
     image: ${DOCKER_REGISTRY-}conferenceattendees.ymvc
     build:
@@ -13,3 +16,31 @@ services:
       dockerfile: ConferenceAttendees.YMVC/Dockerfile
     ports:
       - "8088:8080"
+    depends_on:
+      [conferenceattendees.api]
+
+  seq_logs:
+    image: datalust/seq:latest
+    restart: unless-stopped
+    ports:
+      - "5341:80"
+    environment:
+      ACCEPT_EULA: "Y"
+      SEQ_PASSWORD: ${SEQ_PASSWORD:?Set SEQ_PASSWORD in .env}
+    volumes:
+      - seq_data:/data
+  
+  sql_server:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    ports:
+      - "1400:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
+    volumes:
+      - sql_data:/var/opt/mssql 
+
+volumes:
+  seq_data:
+  sql_data:

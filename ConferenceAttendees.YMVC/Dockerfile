@@ -10,9 +10,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ConferenceAttendees.YMVC.csproj", "."]
-RUN dotnet restore "./ConferenceAttendees.YMVC.csproj"
+COPY ["ConferenceAttendees.YMVC/ConferenceAttendees.YMVC.csproj", "ConferenceAttendees.YMVC/"]
+RUN dotnet restore "./ConferenceAttendees.YMVC/ConferenceAttendees.YMVC.csproj"
 COPY . .
+WORKDIR "/src/ConferenceAttendees.YMVC"
 RUN dotnet build "./ConferenceAttendees.YMVC.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage

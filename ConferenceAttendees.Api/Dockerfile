@@ -8,9 +8,10 @@ USER app
 FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG configuration=Release
 WORKDIR /src
-COPY ["ConferenceAttendees.Api.csproj", "."]
-RUN dotnet restore "./ConferenceAttendees.Api.csproj"
+COPY ["ConferenceAttendees.Api/ConferenceAttendees.Api.csproj", "ConferenceAttendees.Api/"]
+RUN dotnet restore "./ConferenceAttendees.Api/ConferenceAttendees.Api.csproj"
 COPY . .
+WORKDIR "/src/ConferenceAttendees.Api"
 RUN dotnet build "./ConferenceAttendees.Api.csproj" -c $configuration -o /app/build
 
 FROM build AS publish

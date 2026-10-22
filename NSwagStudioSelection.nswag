@@ -60,7 +60,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "ConferenceAttendee.YMVC.Services.Base",
+      "namespace": "ConferenceAttendees.YMVC.Services.Base",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -100,7 +100,7 @@
       "templateDirectory": null,
       "serviceHost": null,
       "serviceSchemes": null,
-      "output": "ConferenceAttendee.YMVC/Services/Base/ServiceClient.cs",
+      "output": "ConferenceAttendees.YMVC/Services/Base/ServiceClient.cs",
       "newLineBehavior": "Auto"
     }
   }
