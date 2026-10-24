@@ -7,6 +7,12 @@ RUN rm /etc/nginx/conf.d/default.conf
 # Copy the custom Nginx configuration file into the container
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
+COPY nginx/api-cert.key /etc/ssl/private/api-cert.key
+COPY nginx/api-cert.crt /etc/ssl/certs/api-cert.crt
+
+COPY nginx/ymvc-cert.key /etc/ssl/private/ymvc-cert.key
+COPY nginx/ymvc-cert.crt /etc/ssl/certs/ymvc-cert.crt
+
 # Set up directory for Nginx logs (if not already present)
 RUN mkdir -p /var/log/nginx
 RUN touch /var/log/nginx/access.log /var/log/nginx/error.log

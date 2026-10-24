@@ -11,6 +11,20 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceAttendees.YMVC", "ConferenceAttendees.YMVC\ConferenceAttendees.YMVC.csproj", "{0DD85507-F3FC-7D97-1CE9-0B0984C4E4B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nginx", "nginx", "{EA51227D-F13C-42F7-9183-F70F34DB3102}"
+	ProjectSection(SolutionItems) = preProject
+		nginx\api-cert.conf = nginx\api-cert.conf
+		nginx\api-cert.crt = nginx\api-cert.crt
+		nginx\api-cert.key = nginx\api-cert.key
+		nginx\api-cert.pfx = nginx\api-cert.pfx
+		nginx\Dockerfile = nginx\Dockerfile
+		nginx\nginx.conf = nginx\nginx.conf
+		nginx\ymvc-cert.conf = nginx\ymvc-cert.conf
+		nginx\ymvc-cert.crt = nginx\ymvc-cert.crt
+		nginx\ymvc-cert.key = nginx\ymvc-cert.key
+		nginx\ymvc-cert.pfx = nginx\ymvc-cert.pfx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
