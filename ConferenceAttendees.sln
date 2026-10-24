@@ -5,8 +5,6 @@ VisualStudioVersion = 18.10.12224.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConferenceAttendees.Api", "ConferenceAttendees.Api\ConferenceAttendees.Api.csproj", "{77CC596B-4B11-457F-AE1F-B146AC120193}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConferenceAttendees.MVC", "ConferenceAttendees.MVC\ConferenceAttendees.MVC.csproj", "{F3F5C619-0FC5-410C-855E-CF88C7826B6B}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferenceAttendees.YMVC", "ConferenceAttendees.YMVC\ConferenceAttendees.YMVC.csproj", "{0DD85507-F3FC-7D97-1CE9-0B0984C4E4B2}"
@@ -35,10 +33,6 @@ Global
 		{77CC596B-4B11-457F-AE1F-B146AC120193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77CC596B-4B11-457F-AE1F-B146AC120193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77CC596B-4B11-457F-AE1F-B146AC120193}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3F5C619-0FC5-410C-855E-CF88C7826B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3F5C619-0FC5-410C-855E-CF88C7826B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3F5C619-0FC5-410C-855E-CF88C7826B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3F5C619-0FC5-410C-855E-CF88C7826B6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
