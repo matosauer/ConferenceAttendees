@@ -18,11 +18,14 @@ Conference Attendees is an educational project designed to support the course "A
 
 ## Setup Instructions
 
-Create an .env file in the root directory of the project with the following content:
+Copy `.env.example` to `.env` in the root directory of the project, then replace the placeholder passwords:
 ```env
 SEQ_PASSWORD=YourSeqPassword
 MSSQL_SA_PASSWORD=YourSQLPassword
+API_DATABASE_CONNECTION="Server=sql_server,1433;Database=ConferenceAttendeeDb;User Id=sa;Password=${MSSQL_SA_PASSWORD};Encrypt=False;TrustServerCertificate=True;MultipleActiveResultSets=true"
 ```
+
+The API reads `ConnectionStrings__ConferenceAttendeeDatabaseConnection` from its container environment. Docker Compose supplies that setting from `API_DATABASE_CONNECTION` in the root `.env` file. The connection string uses `MSSQL_SA_PASSWORD` so the database password only needs to be set once.
 
 Modify host file to add the following line:
 ```

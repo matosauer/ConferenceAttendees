@@ -12,7 +12,7 @@ services:
       seq_logs:
         condition: service_started
     environment:
-      ConnectionStrings__ConferenceAttendeeDatabaseConnection: "Server=sql_server,1433;Database=ConferenceAttendeeDb;User Id=sa;Password=${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env};Encrypt=False;TrustServerCertificate=True;MultipleActiveResultSets=true"
+      ConnectionStrings__ConferenceAttendeeDatabaseConnection: ${API_DATABASE_CONNECTION:?Set API_DATABASE_CONNECTION in .env}
     networks:
       - app-network
 
