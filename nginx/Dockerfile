@@ -17,8 +17,8 @@ COPY nginx/ymvc-cert.crt /etc/ssl/certs/ymvc-cert.crt
 RUN mkdir -p /var/log/nginx
 RUN touch /var/log/nginx/access.log /var/log/nginx/error.log
 
-# Expose port 8083 to the host so that Nginx can serve HTTP traffic
-EXPOSE 8083
+# Expose port 443 to the host so that Nginx can serve HTTPS traffic
+EXPOSE 443
 
 # Start Nginx when the container launches using the default command
 CMD ["nginx", "-g", "daemon off;"]
