@@ -64,3 +64,9 @@ sudo openssl pkcs12 -export -out ymvc-cert.pfx -inkey ymvc-cert.key -in ymvc-cer
 - Serilog is used for logging within the application, providing structured logging capabilities.
 - Seq is used for centralized logging and monitoring of the application. You can access the Seq dashboard at `http://localhost:5341` after running the application.
 - Postman is used for testing API endpoints and verifying the functionality of the application.
+
+## Running the Application
+- Compose with production override and detached
+```bash
+docker compose -f docker-compose.yml -f docker-compose.production.yml up --build -d
+```
