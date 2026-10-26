@@ -42,7 +42,8 @@ services:
       - app-network
   
   sql_server:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    image: "livepictures/conferenceattendeedb"
+    hostname: sql_server
     restart: unless-stopped
     ports:
       - "1400:1433"
