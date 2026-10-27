@@ -37,7 +37,7 @@ services:
       ACCEPT_EULA: "Y"
       SEQ_PASSWORD: ${SEQ_PASSWORD:?Set SEQ_PASSWORD in .env}
     volumes:
-      - seq_data:/data
+      - seqdata:/data
     networks:
       - app-network
   
@@ -51,7 +51,10 @@ services:
       ACCEPT_EULA: "Y"
       MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?Set MSSQL_SA_PASSWORD in .env}
     volumes:
-      - sql_data:/var/opt/mssql
+      - sqlsystem:/var/opt/mssql/
+      - sqldata:/var/opt/sqlserver/data
+      - sqllog:/var/opt/sqlserver/log
+      - sqlbackup:/var/opt/sqlserver/backup
     healthcheck:
       test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q \"SELECT 1\" || exit 1"]
       interval: 10s
@@ -81,5 +84,8 @@ networks:
     driver: bridge
 
 volumes:
-  seq_data:
-  sql_data:
+  seqdata:
+  sqldata:
+  sqlsystem:
+  sqllog:
+  sqlbackup:
