@@ -1,4 +1,4 @@
-@model IEnumerable<ConferenceAttendees.YMVC.Services.Base.Attendee>
+@model IEnumerable<ConferenceAttendees.YMVC.Services.Base.AttendeeListItem>
 
 @{
     ViewData["Title"] = "Index";
@@ -28,22 +28,13 @@
                 @Html.DisplayNameFor(model => model.CompanyName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReferralSource)
+                @Html.DisplayNameFor(model => model.ReferralSourceName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReferralSourceId)
+                @Html.DisplayNameFor(model => model.JobRoleName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.JobRole)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JobRoleId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Gender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GenderId)
+                @Html.DisplayNameFor(model => model.GenderName)
             </th>
             <th></th>
         </tr>
@@ -67,22 +58,13 @@
                 @Html.DisplayFor(model => item.CompanyName)
             </td>
             <td>
-                @Html.DisplayFor(model => item.ReferralSource)
+                @Html.DisplayFor(model => item.ReferralSourceName)
             </td>
             <td>
-                @Html.DisplayFor(model => item.ReferralSourceId)
+                @Html.DisplayFor(model => item.JobRoleName)
             </td>
             <td>
-                @Html.DisplayFor(model => item.JobRole)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.JobRoleId)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.GenderId)
+                @Html.DisplayFor(model => item.GenderName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

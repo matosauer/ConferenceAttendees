@@ -21,7 +21,6 @@ namespace ConferenceAttendees.Api.Data
         public JobRole? JobRole { get; set; }
         public Guid JobRoleId { get; set; }
 
-
         public Gender? Gender { get; set; }
         public Guid GenderId { get; set; }
 

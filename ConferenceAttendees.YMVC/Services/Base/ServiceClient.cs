@@ -29,12 +29,12 @@ namespace ConferenceAttendees.YMVC.Services.Base
     {
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Attendee>> AttendeesAllAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AttendeeListItem>> AttendeesAllAsync();
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Attendee>> AttendeesAllAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AttendeeListItem>> AttendeesAllAsync(System.Threading.CancellationToken cancellationToken);
 
         /// <returns>Created</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -221,17 +221,17 @@ namespace ConferenceAttendees.YMVC.Services.Base
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class Client : IClient
     {
-        #pragma warning disable 8618
+#pragma warning disable 8618
         private string _baseUrl;
-        #pragma warning restore 8618
+#pragma warning restore 8618
 
         private System.Net.Http.HttpClient _httpClient;
         private static System.Lazy<System.Text.Json.JsonSerializerOptions> _settings = new System.Lazy<System.Text.Json.JsonSerializerOptions>(CreateSerializerSettings, true);
         private System.Text.Json.JsonSerializerOptions _instanceSettings;
 
-    #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
-    #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             BaseUrl = baseUrl;
             _httpClient = httpClient;
@@ -268,7 +268,7 @@ namespace ConferenceAttendees.YMVC.Services.Base
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Attendee>> AttendeesAllAsync()
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AttendeeListItem>> AttendeesAllAsync()
         {
             return AttendeesAllAsync(System.Threading.CancellationToken.None);
         }
@@ -276,7 +276,7 @@ namespace ConferenceAttendees.YMVC.Services.Base
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Attendee>> AttendeesAllAsync(System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<AttendeeListItem>> AttendeesAllAsync(System.Threading.CancellationToken cancellationToken)
         {
             var client_ = _httpClient;
             var disposeClient_ = false;
@@ -317,7 +317,7 @@ namespace ConferenceAttendees.YMVC.Services.Base
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<Attendee>>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<AttendeeListItem>>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
@@ -1952,21 +1952,21 @@ namespace ConferenceAttendees.YMVC.Services.Base
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
         private static System.Threading.Tasks.Task<string> ReadAsStringAsync(System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken)
         {
-    #if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
             return content.ReadAsStringAsync(cancellationToken);
-    #else
+#else
             return content.ReadAsStringAsync();
-    #endif
+#endif
         }
 
         [System.Runtime.CompilerServices.MethodImpl(System.Runtime.CompilerServices.MethodImplOptions.AggressiveInlining)]
         private static System.Threading.Tasks.Task<System.IO.Stream> ReadAsStreamAsync(System.Net.Http.HttpContent content, System.Threading.CancellationToken cancellationToken)
         {
-    #if NET5_0_OR_GREATER
+#if NET5_0_OR_GREATER
             return content.ReadAsStreamAsync(cancellationToken);
-    #else
+#else
             return content.ReadAsStreamAsync();
-    #endif
+#endif
         }
 
         public bool ReadResponseAsString { get; set; }
@@ -2025,7 +2025,7 @@ namespace ConferenceAttendees.YMVC.Services.Base
                     var field_ = System.Reflection.IntrospectionExtensions.GetTypeInfo(value.GetType()).GetDeclaredField(name);
                     if (field_ != null)
                     {
-                        var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute(field_, typeof(System.Runtime.Serialization.EnumMemberAttribute)) 
+                        var attribute = System.Reflection.CustomAttributeExtensions.GetCustomAttribute(field_, typeof(System.Runtime.Serialization.EnumMemberAttribute))
                             as System.Runtime.Serialization.EnumMemberAttribute;
                         if (attribute != null)
                         {
@@ -2037,13 +2037,13 @@ namespace ConferenceAttendees.YMVC.Services.Base
                     return converted == null ? string.Empty : converted;
                 }
             }
-            else if (value is bool) 
+            else if (value is bool)
             {
                 return System.Convert.ToString((bool)value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
-                return System.Convert.ToBase64String((byte[]) value);
+                return System.Convert.ToBase64String((byte[])value);
             }
             else if (value is string[])
             {
@@ -2109,6 +2109,39 @@ namespace ConferenceAttendees.YMVC.Services.Base
 
         [System.Text.Json.Serialization.JsonPropertyName("genderId")]
         public System.Guid GenderId { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.7.1.0 (NJsonSchema v11.6.1.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AttendeeListItem
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public System.Guid Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("firstName")]
+        public string FirstName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("lastName")]
+        public string LastName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("emailAddress")]
+        public string EmailAddress { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("phoneNumber")]
+        public string PhoneNumber { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("companyName")]
+        public string CompanyName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("referralSourceName")]
+        public string ReferralSourceName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("jobRoleName")]
+        public string JobRoleName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("genderName")]
+        public string GenderName { get; set; }
 
     }
 
@@ -2190,11 +2223,11 @@ namespace ConferenceAttendees.YMVC.Services.Base
 
 }
 
-#pragma warning restore  108
-#pragma warning restore  114
-#pragma warning restore  472
-#pragma warning restore  612
-#pragma warning restore  649
+#pragma warning restore 108
+#pragma warning restore 114
+#pragma warning restore 472
+#pragma warning restore 612
+#pragma warning restore 649
 #pragma warning restore 1573
 #pragma warning restore 1591
 #pragma warning restore 8073

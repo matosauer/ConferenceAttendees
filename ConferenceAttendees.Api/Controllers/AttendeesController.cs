@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using ConferenceAttendees.Api.Data;
+using ConferenceAttendees.Api.Data.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ConferenceAttendees.Api.Data;
 
 namespace ConferenceAttendees.Api.Controllers
 {
@@ -22,9 +18,27 @@ namespace ConferenceAttendees.Api.Controllers
 
         // GET: api/Attendees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Attendee>>> GetAttendees()
+        public async Task<ActionResult<IEnumerable<AttendeeListItem>>> GetAttendees()
         {
-            return await _context.Attendees.ToListAsync();
+            var attendies = await _context.Attendees
+                                    .Include(a => a.ReferralSource)
+                                    .Include(a => a.JobRole)
+                                    .Include(a => a.Gender)
+                                    .OrderBy(a => a.CompanyName)
+                                    .Select(a => new AttendeeListItem
+                                    {
+                                        Id = a.Id,
+                                        FirstName = a.FirstName,
+                                        LastName = a.LastName,
+                                        EmailAddress = a.EmailAddress,
+                                        PhoneNumber = a.PhoneNumber,
+                                        CompanyName = a.CompanyName,
+                                        ReferralSourceName = a.ReferralSource != null ? a.ReferralSource.Name : null,
+                                        JobRoleName = a.JobRole != null ? a.JobRole.Name : null,
+                                        GenderName = a.Gender != null ? a.Gender.Name : null
+                                    })
+                                    .ToListAsync();
+            return attendies;
         }
 
         // GET: api/Attendees/5
